@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 10
+int queue[size];
+int front=-1;
+int rear=-1;
+void enqueue(){
+    if(rear==size-1){
+        printf("queue is full");
+    }
+    else{
+        int val;
+        printf("enter val");
+        scanf("%d",&val);
+        rear++;
+        front=0;
+        queue[rear]=val;
+        printf("elt added successfully");
+    }
+}
+void dequeue(){
+    if(front==-1||front>rear){
+        printf("queue is empty");
+    }
+    else{
+        front++;
+        printf("elt deleted successfully");
+    }
+}
+void peek(){
+    if(front==-1||front>rear){
+        printf("queue is empty");
+    }
+    else{
+        printf("top value:%d\n",queue[front]);
+    }
+}
+void display(){
+    if(front==-1||front>rear){
+        printf("queue is empty");
+    }
+    else{
+        for(int i=front;i<=rear;i++){
+            printf("%d",queue[i]);
+        }
+    }
+}
+void main(){
+    while(1){
+        printf("chose option:1)enqueue 2)dequeue 3)peek 4)display 5)exit\n");
+        int option;
+        scanf("%d",&option);
+        if(option==1){
+            enqueue();
+        }
+        else if(option ==2){
+            dequeue();
+        }
+        else if(option==3){
+            peek();
+        }
+        else if(option==4){
+            display();
+        }
+        else{
+            printf("successfully breaked");
+            break;
+        }
+    }
+}
+    
+
+
+  
